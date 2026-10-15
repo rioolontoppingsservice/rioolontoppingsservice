@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina niet gevonden — 24/7 Riool & Ontstoppingsservice</title>
+  <meta name="description" content="De pagina die u zoekt bestaat niet meer of is verplaatst.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/page.css">
+  <style>
+    .error-page {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-cream);
+      padding: var(--space-16) 0;
+    }
+    .error-page__inner {
+      text-align: center;
+      max-width: 540px;
+      padding: 0 var(--space-6);
+    }
+    .error-code {
+      font-family: var(--font-display);
+      font-size: 8rem;
+      font-weight: var(--font-bold);
+      color: var(--color-primary);
+      opacity: 0.12;
+      line-height: 1;
+      margin-bottom: -var(--space-6);
+      pointer-events: none;
+      user-select: none;
+    }
+    .error-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--color-primary-subtle);
+      border-radius: var(--radius-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-6);
+    }
+    .error-icon svg {
+      width: 40px;
+      height: 40px;
+      color: var(--color-primary);
+    }
+    .error-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--font-bold);
+      color: var(--color-dark);
+      margin-bottom: var(--space-4);
+    }
+    .error-sub {
+      font-size: var(--text-lg);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-8);
+      line-height: var(--leading-relaxed);
+    }
+    .error-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-bottom: var(--space-8);
+    }
+    .error-quick-links {
+      border-top: 1px solid var(--color-gray-200);
+      padding-top: var(--space-8);
+    }
+    .error-quick-links p {
+      font-size: var(--text-sm);
+      color: var(--color-gray-400);
+      margin-bottom: var(--space-4);
+    }
+    .error-quick-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+    }
+    .error-quick-nav a {
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      color: var(--color-gray-600);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+    .error-quick-nav a:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-primary-subtle);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Ga naar inhoud</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <a href="/" class="site-logo" aria-label="24/7 Riool & Ontstoppingsservice - naar homepage">
+        <svg class="site-logo__mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.12)"/>
+          <rect x="20" y="28" width="24" height="6" rx="3" fill="#E8662E"/>
+          <rect x="29" y="22" width="6" height="20" rx="3" fill="white"/>
+          <circle cx="32" cy="44" r="3" fill="#E8662E"/>
+        </svg>
+        <div class="site-logo__text">
+          <span class="site-logo__name">Riool &amp; Ontstopping</span>
+          <span class="site-logo__tag">24/7 Service</span>
+        </div>
+      </a>
+      <nav class="primary-nav" aria-label="Hoofdnavigatie">
+        <ul class="primary-nav__list">
+          <li><a href="/" class="primary-nav__link">Home</a></li>
+          <li><a href="/diensten/" class="primary-nav__link">Diensten</a></li>
+          <li><a href="/tarieven/" class="primary-nav__link">Tarieven</a></li>
+          <li><a href="/werkgebied/" class="primary-nav__link">Werkgebied</a></li>
+          <li><a href="/contact/" class="primary-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="/contact/" class="btn btn-primary btn-sm">Offerte aanvragen</a>
+        <button class="mobile-toggle" aria-label="Menu openen" aria-expanded="false" aria-controls="mobile-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" role="dialog" aria-label="Menu" aria-hidden="true">
+    <div class="mobile-menu__header">
+      <span style="color:white;font-family:var(--font-display);font-size:var(--text-lg);">Riool &amp; Ontstopping</span>
+      <button class="mobile-menu__close" aria-label="Menu sluiten">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-menu__nav">
+      <ul class="mobile-menu__list">
+        <li><a href="/" class="mobile-menu__link">Home</a></li>
+        <li><a href="/diensten/" class="mobile-menu__link">Diensten</a></li>
+        <li><a href="/tarieven/" class="mobile-menu__link">Tarieven</a></li>
+        <li><a href="/werkgebied/" class="mobile-menu__link">Werkgebied</a></li>
+        <li><a href="/contact/" class="mobile-menu__link">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__footer">
+      <p class="mobile-menu__contact-title">Direct contact</p>
+      <a href="mailto:rioolontoppingsservice@gmail.com" class="mobile-menu__email">rioolontoppingsservice@gmail.com</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <div class="error-page">
+      <div class="error-page__inner">
+        <div class="error-code" aria-hidden="true">404</div>
+        <div class="error-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+          </svg>
+        </div>
+        <h1 class="error-title">Pagina niet gevonden</h1>
+        <p class="error-sub">De pagina die u zoekt bestaat niet meer, is verplaatst, of het adres is niet juist ingevoerd.</p>
+        <div class="error-links">
+          <a href="/" class="btn btn-primary">Terug naar homepage</a>
+          <a href="/contact/" class="btn btn-outline" style="border-color:var(--color-gray-300);color:var(--color-dark);">Contact opnemen</a>
+        </div>
+        <div class="error-quick-links">
+          <p>Of ga direct naar:</p>
+          <nav class="error-quick-nav" aria-label="Snelkoppelingen">
+            <a href="/diensten/">Diensten</a>
+            <a href="/diensten/riool-ontstoppen/">Riool ontstoppen</a>
+            <a href="/diensten/wc-ontstoppen/">WC ontstoppen</a>
+            <a href="/tarieven/">Tarieven</a>
+            <a href="/werkgebied/">Werkgebied</a>
+            <a href="/faq/">FAQ</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" style="padding:var(--space-8) 0;">
+    <div class="container">
+      <div class="footer__bottom" style="border-top:none;padding-top:0;">
+        <p class="footer__copy">&copy; <span id="year"></span> 24/7 Riool &amp; Ontstoppingsservice</p>
+        <div class="footer__legal">
+          <a href="/privacy/">Privacyverklaring</a>
+          <a href="/algemene-voorwaarden/">Voorwaarden</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

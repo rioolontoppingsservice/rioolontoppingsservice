@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#003B32"/>
+  <!-- Pipe/drain symbol -->
+  <rect x="20" y="28" width="24" height="6" rx="3" fill="#E8662E"/>
+  <!-- Vertical drain pipe -->
+  <rect x="29" y="22" width="6" height="20" rx="3" fill="white"/>
+  <!-- Water drop indicator -->
+  <circle cx="32" cy="44" r="3" fill="#E8662E"/>
+</svg>

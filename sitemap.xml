@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Hoofdpagina -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Diensten overzicht -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Riool Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/riool-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Afvoer Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/afvoer-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- WC Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/wc-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Gootsteen Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/gootsteen-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Rioolinspectie -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/rioolinspectie/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Rioolreiniging -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/rioolreiniging/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Spoelbak Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/spoelbak-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Douche Afvoer Ontstoppen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/diensten/douche-afvoer-ontstoppen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Werkgebied -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Werkgebied: Steden in Zuid-Holland -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/rotterdam/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/den-haag/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/dordrecht/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/leiden/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/delft/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/zoetermeer/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/gouda/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://rioolontoppingsservice.nl/werkgebied/schiedam/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Over Ons -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/over-ons/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/contact/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Blog / Tips -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/tips/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <!-- Veelgestelde Vragen -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/veelgestelde-vragen/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Tarieven -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/tarieven/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- Privacybeleid -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/privacybeleid/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- Algemene Voorwaarden -->
+  <url>
+    <loc>https://rioolontoppingsservice.nl/algemene-voorwaarden/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.30</priority>
+  </url>
+
+</urlset>

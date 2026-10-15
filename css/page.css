@@ -209,6 +209,32 @@
   color: var(--color-white);
 }
 
+/* ——— HERO FOTO ——— */
+.hero-photo {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+}
+
+.hero-photo img {
+  display: block;
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, transparent 50%, rgba(0, 40, 34, 0.45) 100%);
+  pointer-events: none;
+}
+
 /* ——— HERO SECTION ——— */
 .hero {
   background-color: var(--color-primary);
@@ -473,6 +499,61 @@
   .usp-item:nth-child(n+3) {
     display: none;
   }
+}
+
+/* ——— SERVICE CARD FOTO ——— */
+.service-card-img {
+  width: calc(100% + var(--space-16));
+  margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) var(--space-5) calc(-1 * var(--space-8));
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  overflow: hidden;
+  height: 180px;
+  flex-shrink: 0;
+}
+
+.service-card-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.service-card:hover .service-card-img img {
+  transform: scale(1.05);
+}
+
+/* ——— WERKWIJZE BANNER ——— */
+.process-banner {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+  height: 260px;
+  box-shadow: var(--shadow-md);
+}
+
+.process-banner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ——— WERKGEBIED FOTO ——— */
+.region-photo {
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+}
+
+.region-photo img {
+  display: block;
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ——— SERVICES GRID ——— */

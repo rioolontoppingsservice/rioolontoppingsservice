@@ -324,20 +324,23 @@ nav a[aria-current="page"] { color: var(--blue); }
 }
 .hero-bg-photo {
   position: absolute; inset: 0;
-  background-image: url('hero.jpg');
-  background-size: auto 100%;
-  background-position: right center;
-  background-repeat: no-repeat;
+  overflow: hidden;
   z-index: 0;
+}
+.hero-bg-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 40% top;
+  display: block;
 }
 .hero-bg-photo::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     100deg,
-    rgba(10,22,40,.82) 0%,
-    rgba(10,22,40,.70) 50%,
-    rgba(10,22,40,.55) 100%
+    rgba(10,22,40,.85) 0%,
+    rgba(10,22,40,.72) 45%,
+    rgba(10,22,40,.45) 100%
   );
 }
 .hero-inner { position: relative; z-index: 1; }
@@ -985,7 +988,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
 <!-- HERO -->
 <section class="hero" id="main">
-  <div class="hero-bg-photo" role="presentation" aria-hidden="true"></div>
+  <div class="hero-bg-photo" role="presentation" aria-hidden="true">
+    <img src="hero.jpg" alt="" fetchpriority="high">
+  </div>
   <div class="hero-inner">
     <div class="hero-text">
       <div class="spoed-badge"><span></span>Spoeddienst beschikbaar &mdash; ook nu</div>

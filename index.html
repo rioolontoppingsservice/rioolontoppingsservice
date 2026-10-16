@@ -1183,6 +1183,157 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 }
 
 
+/* ══════════════════════════════════════════
+   DIAGNOSE WIZARD
+══════════════════════════════════════════ */
+.wizard-section { background: var(--bg-alt); }
+
+.wizard-card {
+  background: var(--bg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 32px rgba(7,19,34,.06);
+  overflow: hidden;
+  max-width: 720px;
+  margin: 48px auto 0;
+}
+
+.wizard-step { padding: 40px 40px 32px; }
+@media (max-width: 600px) { .wizard-step { padding: 28px 20px 20px; } }
+.wizard-step--hidden { display: none; }
+
+.wizard-step-header { margin-bottom: 28px; }
+.wizard-step-num {
+  font-size: .78rem; font-weight: 600; letter-spacing: .08em;
+  color: var(--blue); text-transform: uppercase; display: block; margin-bottom: 6px;
+}
+.wizard-step-title {
+  font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+.wizard-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 12px;
+}
+@media (max-width: 480px) { .wizard-options { grid-template-columns: 1fr 1fr; } }
+
+.wizard-opt {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; padding: 18px 12px;
+  background: var(--bg-alt);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer; transition: all .18s ease;
+  text-align: center;
+}
+.wizard-opt:hover {
+  border-color: var(--blue); background: #EEF3FC;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(24,71,196,.12);
+}
+.wizard-opt.selected {
+  border-color: var(--blue); background: #EEF3FC;
+  box-shadow: 0 0 0 3px rgba(24,71,196,.15);
+}
+.wizard-opt-icon { font-size: 1.8rem; line-height: 1; }
+.wizard-opt-label { font-size: .85rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+
+.wizard-progress {
+  height: 4px; background: var(--border);
+  margin: 0; border-radius: 0;
+}
+.wizard-progress-bar {
+  height: 100%; background: linear-gradient(90deg, var(--blue), #25D366);
+  border-radius: 0; transition: width .4s cubic-bezier(.4,0,.2,1);
+  width: 0%;
+}
+
+/* RESULTAAT */
+.wizard-result { padding: 0; }
+.wizard-result-inner { padding: 40px; }
+@media (max-width: 600px) { .wizard-result-inner { padding: 28px 20px; } }
+
+.wizard-result-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #DCFCE7; color: #15803d;
+  font-size: .82rem; font-weight: 700; letter-spacing: .04em;
+  padding: 6px 14px; border-radius: var(--radius-full);
+  margin-bottom: 16px;
+}
+.wizard-result-title {
+  font-size: 1.6rem; font-weight: 800; color: var(--text);
+  margin: 0 0 8px; font-family: 'Outfit', sans-serif;
+}
+.wizard-result-desc {
+  color: var(--text-sub); font-size: .95rem; margin: 0 0 28px;
+}
+
+.wizard-price-box {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px; margin-bottom: 24px;
+  text-align: center;
+}
+.wizard-price-label {
+  color: rgba(255,255,255,.65); font-size: .78rem;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.wizard-price-amount {
+  font-size: 3rem; font-weight: 900; color: #fff;
+  font-family: 'Outfit', sans-serif; line-height: 1;
+  margin-bottom: 10px;
+}
+.wizard-price-note {
+  color: rgba(255,255,255,.5); font-size: .8rem;
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+}
+.wizard-price-note::before { content: '✓ '; }
+
+.wizard-cta-row {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.wizard-cta-wa {
+  flex: 1 1 200px; display: flex; align-items: center; justify-content: center;
+  gap: 10px; padding: 15px 20px;
+  background: #25D366; color: #fff;
+  border-radius: var(--radius-lg); font-weight: 700; font-size: .95rem;
+  text-decoration: none; transition: all .18s ease;
+  box-shadow: 0 4px 16px rgba(37,211,102,.4);
+}
+.wizard-cta-wa:hover {
+  background: #1ebe5a; transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(37,211,102,.55);
+}
+.wizard-cta-bel {
+  flex: 0 1 auto; display: flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 15px 22px;
+  background: transparent; color: var(--blue);
+  border: 2px solid var(--blue);
+  border-radius: var(--radius-lg); font-weight: 700; font-size: .95rem;
+  text-decoration: none; transition: all .18s ease;
+}
+.wizard-cta-bel:hover { background: var(--blue); color: #fff; }
+
+.wizard-reset {
+  background: none; border: none; color: var(--text-muted);
+  font-size: .85rem; cursor: pointer; padding: 4px 0;
+  text-decoration: underline; transition: color .15s;
+}
+.wizard-reset:hover { color: var(--text); }
+
+/* animate in results */
+@keyframes wizard-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wizard-result.wizard-show {
+  display: block;
+  animation: wizard-in .35s ease both;
+}
+
 /* ── SOCIAL ICONS ── */
 .social-links { display: flex; gap: 12px; margin-top: 6px; }
 .social-link {
@@ -1279,6 +1430,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
     </button>
     <nav>
       <a href="#">Home</a>
+      <a href="#diagnose">Prijscheck</a>
       <a href="#tarieven">Tarieven</a>
       <a href="#over-ons">Over ons</a>
       <a href="#reviews">Reviews</a>
@@ -1782,6 +1934,137 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
       </div>
     </div>
     <p class="foto-credit">Foto's: Unsplash &amp; Pexels (CC0 licentie)</p>
+  </div>
+</section>
+
+<!-- DIAGNOSE WIZARD -->
+<section class="section wizard-section" id="diagnose">
+  <div class="wrap">
+    <p class="section-eyebrow">Weet direct wat het kost</p>
+    <h2 class="section-h">Wat is uw probleem?</h2>
+    <p class="section-lead">Beantwoord 3 vragen — wij geven u direct een vaste prijs en een WhatsApp-bericht klaar om te versturen.</p>
+
+    <div class="wizard-card" id="wizardCard">
+
+      <!-- STAP 1: Probleem -->
+      <div class="wizard-step" id="step1">
+        <div class="wizard-step-header">
+          <span class="wizard-step-num">Stap 1 van 3</span>
+          <h3 class="wizard-step-title">Welke afvoer is verstopt?</h3>
+        </div>
+        <div class="wizard-options" id="step1Options">
+          <button class="wizard-opt" data-key="wc" onclick="wizardSelect(1,'wc',this)">
+            <span class="wizard-opt-icon">🚽</span>
+            <span class="wizard-opt-label">Toilet / WC</span>
+          </button>
+          <button class="wizard-opt" data-key="douche" onclick="wizardSelect(1,'douche',this)">
+            <span class="wizard-opt-icon">🚿</span>
+            <span class="wizard-opt-label">Douche / bad</span>
+          </button>
+          <button class="wizard-opt" data-key="keuken" onclick="wizardSelect(1,'keuken',this)">
+            <span class="wizard-opt-icon">🍳</span>
+            <span class="wizard-opt-label">Gootsteen / keuken</span>
+          </button>
+          <button class="wizard-opt" data-key="wasmachine" onclick="wizardSelect(1,'wasmachine',this)">
+            <span class="wizard-opt-icon">🫧</span>
+            <span class="wizard-opt-label">Wasmachine / wasbak</span>
+          </button>
+          <button class="wizard-opt" data-key="buiten" onclick="wizardSelect(1,'buiten',this)">
+            <span class="wizard-opt-icon">🌿</span>
+            <span class="wizard-opt-label">Buitenriool / put</span>
+          </button>
+          <button class="wizard-opt" data-key="meerdere" onclick="wizardSelect(1,'meerdere',this)">
+            <span class="wizard-opt-icon">🏠</span>
+            <span class="wizard-opt-label">Meerdere afvoeren</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STAP 2: Hoe erg -->
+      <div class="wizard-step wizard-step--hidden" id="step2">
+        <div class="wizard-step-header">
+          <span class="wizard-step-num">Stap 2 van 3</span>
+          <h3 class="wizard-step-title">Hoe erg is de verstopping?</h3>
+        </div>
+        <div class="wizard-options">
+          <button class="wizard-opt" data-key="traag" onclick="wizardSelect(2,'traag',this)">
+            <span class="wizard-opt-icon">🐢</span>
+            <span class="wizard-opt-label">Loopt traag weg</span>
+          </button>
+          <button class="wizard-opt" data-key="compleet" onclick="wizardSelect(2,'compleet',this)">
+            <span class="wizard-opt-icon">🚫</span>
+            <span class="wizard-opt-label">Loopt helemaal niet meer</span>
+          </button>
+          <button class="wizard-opt" data-key="terugslag" onclick="wizardSelect(2,'terugslag',this)">
+            <span class="wizard-opt-icon">💦</span>
+            <span class="wizard-opt-label">Water komt terug / terugslag</span>
+          </button>
+          <button class="wizard-opt" data-key="geur" onclick="wizardSelect(2,'geur',this)">
+            <span class="wizard-opt-icon">💨</span>
+            <span class="wizard-opt-label">Nare geur, maar loopt nog</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STAP 3: Urgentie -->
+      <div class="wizard-step wizard-step--hidden" id="step3">
+        <div class="wizard-step-header">
+          <span class="wizard-step-num">Stap 3 van 3</span>
+          <h3 class="wizard-step-title">Wanneer heeft u hulp nodig?</h3>
+        </div>
+        <div class="wizard-options">
+          <button class="wizard-opt" data-key="spoed" onclick="wizardSelect(3,'spoed',this)">
+            <span class="wizard-opt-icon">⚡</span>
+            <span class="wizard-opt-label">Nu / vandaag — spoed</span>
+          </button>
+          <button class="wizard-opt" data-key="vandaag" onclick="wizardSelect(3,'vandaag',this)">
+            <span class="wizard-opt-icon">📅</span>
+            <span class="wizard-opt-label">Vandaag of morgen</span>
+          </button>
+          <button class="wizard-opt" data-key="flexibel" onclick="wizardSelect(3,'flexibel',this)">
+            <span class="wizard-opt-icon">🗓️</span>
+            <span class="wizard-opt-label">Flexibel — deze week</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PROGRESSIEBALK -->
+      <div class="wizard-progress" id="wizardProgress">
+        <div class="wizard-progress-bar" id="wizardProgressBar"></div>
+      </div>
+
+      <!-- RESULTAAT -->
+      <div class="wizard-result wizard-step--hidden" id="wizardResult">
+        <div class="wizard-result-inner">
+          <div class="wizard-result-badge">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Diagnose klaar
+          </div>
+          <h3 class="wizard-result-title" id="wizardDiagnosis">Plaatselijke entstopping</h3>
+          <p class="wizard-result-desc" id="wizardDesc">Professioneel ontstopt met hogedrukspuit. Inclusief inspectie.</p>
+
+          <div class="wizard-price-box">
+            <div class="wizard-price-label">Vaste prijs — geen verrassingen</div>
+            <div class="wizard-price-amount" id="wizardPrice">€ 165</div>
+            <div class="wizard-price-note">Inclusief btw · Geen voorrijkosten · 3 mnd garantie</div>
+          </div>
+
+          <div class="wizard-cta-row">
+            <a class="wizard-cta-wa" id="wizardWaBtn" href="#" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M22.9 9.1A9.74 9.74 0 0016 6.5C10.76 6.5 6.5 10.76 6.5 16c0 1.67.44 3.3 1.27 4.73L6.5 25.5l4.9-1.25A9.76 9.76 0 0016 25.5c5.24 0 9.5-4.26 9.5-9.5 0-2.54-.99-4.93-2.6-6.9zm-6.9 14.6c-1.42 0-2.8-.38-4.02-1.1l-.29-.17-2.91.74.77-2.81-.19-.3A7.88 7.88 0 018.3 16c0-4.25 3.45-7.7 7.7-7.7a7.66 7.66 0 015.44 2.26 7.66 7.66 0 012.26 5.44c0 4.25-3.45 7.7-7.7 7.7zm4.22-5.77c-.23-.12-1.37-.68-1.58-.75-.21-.08-.37-.12-.52.12-.15.23-.6.75-.73.91-.13.16-.27.18-.5.06-.23-.12-.97-.36-1.85-1.14-.68-.6-1.14-1.35-1.28-1.58-.13-.23-.01-.35.1-.47.1-.11.23-.28.35-.42.12-.14.16-.23.23-.39.08-.16.04-.3-.02-.41-.06-.12-.52-1.26-.72-1.72-.19-.45-.38-.39-.52-.4h-.45c-.16 0-.41.06-.62.3-.21.23-.82.8-.82 1.95s.84 2.26.96 2.42c.12.16 1.66 2.53 4.02 3.55.56.24 1 .39 1.34.5.56.18 1.07.15 1.47.09.45-.07 1.37-.56 1.57-1.1.19-.54.19-1.01.13-1.1-.06-.1-.22-.16-.45-.28z" fill="#fff"/></svg>
+              WhatsApp met uw prijsopgave
+            </a>
+            <a class="wizard-cta-bel" href="tel:+31613137578">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2"/></svg>
+              Direct bellen
+            </a>
+          </div>
+
+          <button class="wizard-reset" onclick="wizardReset()">← Opnieuw beginnen</button>
+        </div>
+      </div>
+
+    </div><!-- /wizard-card -->
   </div>
 </section>
 
@@ -2469,6 +2752,119 @@ function submitForm(e) {
     alert('Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar rioolontoppingsservice@gmail.com');
   });
 }
+
+/* ── DIAGNOSE WIZARD ── */
+(function() {
+  var state = { step1: null, step2: null, step3: null };
+
+  var prijzen = {
+    // [locatie][ernst][urgentie]
+    wc:       { traag: { spoed: 225, vandaag: 195, flexibel: 165 }, compleet: { spoed: 245, vandaag: 215, flexibel: 185 }, terugslag: { spoed: 275, vandaag: 245, flexibel: 215 }, geur: { spoed: 195, vandaag: 175, flexibel: 155 } },
+    douche:   { traag: { spoed: 195, vandaag: 165, flexibel: 145 }, compleet: { spoed: 215, vandaag: 185, flexibel: 165 }, terugslag: { spoed: 235, vandaag: 205, flexibel: 175 }, geur: { spoed: 185, vandaag: 165, flexibel: 145 } },
+    keuken:   { traag: { spoed: 185, vandaag: 165, flexibel: 145 }, compleet: { spoed: 205, vandaag: 185, flexibel: 165 }, terugslag: { spoed: 225, vandaag: 195, flexibel: 175 }, geur: { spoed: 175, vandaag: 155, flexibel: 135 } },
+    wasmachine:{ traag: { spoed: 185, vandaag: 165, flexibel: 145 }, compleet: { spoed: 205, vandaag: 185, flexibel: 165 }, terugslag: { spoed: 225, vandaag: 195, flexibel: 175 }, geur: { spoed: 175, vandaag: 155, flexibel: 135 } },
+    buiten:   { traag: { spoed: 285, vandaag: 255, flexibel: 225 }, compleet: { spoed: 345, vandaag: 295, flexibel: 265 }, terugslag: { spoed: 395, vandaag: 345, flexibel: 295 }, geur: { spoed: 265, vandaag: 235, flexibel: 195 } },
+    meerdere: { traag: { spoed: 295, vandaag: 265, flexibel: 235 }, compleet: { spoed: 345, vandaag: 295, flexibel: 265 }, terugslag: { spoed: 395, vandaag: 345, flexibel: 295 }, geur: { spoed: 285, vandaag: 245, flexibel: 215 } }
+  };
+
+  var labels = {
+    step1: { wc: 'Toilet / WC', douche: 'Douche / bad', keuken: 'Gootsteen / keuken', wasmachine: 'Wasmachine / wasbak', buiten: 'Buitenriool / put', meerdere: 'Meerdere afvoeren' },
+    step2: { traag: 'loopt traag weg', compleet: 'loopt helemaal niet meer', terugslag: 'terugslag / water komt terug', geur: 'nare geur' },
+    step3: { spoed: 'spoed (vandaag)', vandaag: 'vandaag of morgen', flexibel: 'flexibel deze week' }
+  };
+
+  var diagnoses = {
+    wc:       { traag: 'Plaatselijke WC-entstopping', compleet: 'Krachtige WC-entstopping', terugslag: 'WC-entstopping + hoofdleiding controle', geur: 'WC-reiniging & geur-inspectie' },
+    douche:   { traag: 'Doucheafvoer-entstopping', compleet: 'Complete doucheafvoer-entstopping', terugslag: 'Doucheafvoer + afvoerleiding controle', geur: 'Doucheafvoer-reiniging' },
+    keuken:   { traag: 'Keukenafvoer-entstopping', compleet: 'Complete keukenafvoer-entstopping', terugslag: 'Keukenafvoer + vetverstopping aanpak', geur: 'Keukenafvoer-reiniging' },
+    wasmachine:{ traag: 'Wasafvoer-entstopping', compleet: 'Complete wasafvoer-entstopping', terugslag: 'Wasafvoer + terugstroom controle', geur: 'Wasafvoer-reiniging' },
+    buiten:   { traag: 'Buitenriool-entstopping', compleet: 'Complete rioolput-entstopping', terugslag: 'Rioolput + hoofdleiding rodding', geur: 'Rioolinspectie & reiniging' },
+    meerdere: { traag: 'Meervoudige afvoer-entstopping', compleet: 'Complete huisinstallatie-entstopping', terugslag: 'Hele rioolinstallatie rodding', geur: 'Huisriool-inspectie & reiniging' }
+  };
+
+  var beschrijvingen = {
+    wc:       { traag: 'Professioneel WC-vrijmaken met drain-snake en spoeling.', compleet: 'Hogedruk-rodding van WC-leiding — direct doorstroming hersteld.', terugslag: 'Complexe entstopping met camera-inspectie van de hoofdleiding.', geur: 'Grondige WC-reiniging en afdichting van geur-bron.' },
+    douche:   { traag: 'Doucheputje en afvoer vrijmaken, haren en zeepvet verwijderd.', compleet: 'Hogedruk-rodding door de volledige doucheafvoer.', terugslag: 'Afvoer + pijpleiding controle om terugslag duurzaam op te lossen.', geur: 'Sifon reinigen, biofilm verwijderen, ventilatiecheck.' },
+    keuken:   { traag: 'Vetaanslag en etensresten verwijderd uit de keukenafvoer.', compleet: 'Hogedruk-spuiten van de vetverstopping in uw keukenleiding.', terugslag: 'Volledige vetverstopping aanpak inclusief sifon-controle.', geur: 'Keukenafvoer grondig schoongemaakt, bacteriën en etensresten weg.' },
+    wasmachine:{ traag: 'Was-pluizen en zeepvet verwijderd uit de wasafvoer.', compleet: 'Volledige wasafvoer-leiding vrijgemaakt met hogedrukspuit.', terugslag: 'Terugstroom-beveiliging controle + afvoer vrijgemaakt.', geur: 'Afvoer gereinigd, sifon nagekeken, geur-oorzaak opgespoord.' },
+    buiten:   { traag: 'Buitenriool-leiding gereinigd, wortels of bladeren verwijderd.', compleet: 'Rioolput volledig gerodded met hogedruk-apparatuur.', terugslag: 'Complexe riool-ontstopping met camera-inspectie van de hoofdleiding.', geur: 'Rioolinspectie met camera, oorzaak geur opgespoord en verholpen.' },
+    meerdere: { traag: 'Meerdere afvoeren vrijgemaakt in één bezoek — efficiënt geprijsd.', compleet: 'Volledige huisinstallatie doorgespoeld en opgeruimd.', terugslag: 'Complete rodding van de huisinstallatie, camera-inspectie inbegrepen.', geur: 'Volledige inspectie van het rioolstelsel — oorzaak opgespoord.' }
+  };
+
+  window.wizardSelect = function(step, key, btn) {
+    // Markeer geselecteerde knop
+    var parent = btn.closest('.wizard-options');
+    parent.querySelectorAll('.wizard-opt').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+
+    // Sla keuze op
+    state['step' + step] = key;
+
+    // Progressbalk bijwerken
+    var pct = (step / 3) * 100;
+    document.getElementById('wizardProgressBar').style.width = pct + '%';
+
+    // Kleine vertraging dan volgende stap
+    setTimeout(function() {
+      if (step === 1) {
+        document.getElementById('step1').classList.add('wizard-step--hidden');
+        document.getElementById('step2').classList.remove('wizard-step--hidden');
+      } else if (step === 2) {
+        document.getElementById('step2').classList.add('wizard-step--hidden');
+        document.getElementById('step3').classList.remove('wizard-step--hidden');
+      } else if (step === 3) {
+        document.getElementById('step3').classList.add('wizard-step--hidden');
+        document.getElementById('wizardProgressBar').style.width = '100%';
+        wizardShowResult();
+      }
+    }, 280);
+  };
+
+  function wizardShowResult() {
+    var s1 = state.step1, s2 = state.step2, s3 = state.step3;
+    var prijs = prijzen[s1][s2][s3];
+    var diagnose = diagnoses[s1][s2];
+    var desc = beschrijvingen[s1][s2];
+
+    document.getElementById('wizardDiagnosis').textContent = diagnose;
+    document.getElementById('wizardDesc').textContent = desc;
+    document.getElementById('wizardPrice').textContent = '€ ' + prijs;
+
+    // Pre-filled WhatsApp bericht
+    var locLabel = labels.step1[s1];
+    var ernstLabel = labels.step2[s2];
+    var urgLabel = labels.step3[s3];
+    var msg = 'Hallo, ik heb een probleem: ' + locLabel + ' die ' + ernstLabel + '. '
+      + 'Diagnose via uw website: ' + diagnose + '. '
+      + 'Vaste prijs € ' + prijs + ' — ' + urgLabel + '. '
+      + 'Kunt u mij helpen?';
+    document.getElementById('wizardWaBtn').href = 'https://wa.me/31613137578?text=' + encodeURIComponent(msg);
+
+    var resultEl = document.getElementById('wizardResult');
+    resultEl.classList.remove('wizard-step--hidden');
+    resultEl.classList.add('wizard-show');
+
+    // Scroll naar resultaat op mobiel
+    setTimeout(function() {
+      resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  window.wizardReset = function() {
+    state = { step1: null, step2: null, step3: null };
+    ['step1','step2','step3'].forEach(function(id) {
+      var el = document.getElementById(id);
+      el.classList.remove('wizard-step--hidden');
+      if (id !== 'step1') el.classList.add('wizard-step--hidden');
+      el.querySelectorAll('.wizard-opt').forEach(function(b) { b.classList.remove('selected'); });
+    });
+    var r = document.getElementById('wizardResult');
+    r.classList.add('wizard-step--hidden');
+    r.classList.remove('wizard-show');
+    document.getElementById('wizardProgressBar').style.width = '0%';
+    document.getElementById('wizardCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+})();
 
 /* ── FLOATING CTA (show after scroll) ── */
 (function() {

@@ -413,41 +413,103 @@ nav a[aria-current="page"] { color: var(--blue); }
 /* ── FORM CARD ── */
 .form-card {
   background: var(--bg); color: var(--text);
-  border-radius: var(--radius-lg); padding: 30px;
+  border-radius: var(--radius-lg); padding: 28px 28px 24px;
   box-shadow: 0 12px 48px rgba(0,0,0,.35);
 }
-.form-card h2, .form-title {
-  font-family: 'DM Sans', sans-serif; font-size: .78rem; font-weight: 700;
-  color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase;
-  letter-spacing: .6px;
+.form-card-header { margin-bottom: 18px; }
+.form-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(245,158,11,.13); color: #d97706;
+  font-size: .7rem; font-weight: 700; letter-spacing: .5px;
+  padding: 4px 10px; border-radius: 20px; margin-bottom: 10px;
+  text-transform: uppercase;
 }
-.form-card p { font-size: .82rem; color: var(--text-muted); margin-bottom: 20px; }
-.form-stack { display: flex; flex-direction: column; gap: 11px; }
+.form-title {
+  font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 800;
+  color: var(--text); margin-bottom: 4px; letter-spacing: -.2px;
+}
+.form-subtitle { font-size: .82rem; color: var(--text-muted); margin: 0; }
+.form-stack { display: flex; flex-direction: column; gap: 12px; }
+.form-field { display: flex; flex-direction: column; gap: 5px; }
+.form-label { font-size: .78rem; font-weight: 600; color: var(--text); letter-spacing: .1px; }
+.select-wrap { position: relative; }
+.select-arrow {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  pointer-events: none; color: var(--text-muted);
+}
 .form-stack select,
-.form-stack input {
-  width: 100%; padding: 12px 14px;
+.form-stack input[type="text"],
+.form-stack input[type="email"] {
+  width: 100%; padding: 11px 14px;
   border: 1.5px solid var(--border); border-radius: var(--radius);
-  font-size: 1rem; font-family: 'Inter', sans-serif;
-  background: var(--bg); color: var(--text); outline: none;
-  transition: border-color .15s; min-height: 48px;
-  -webkit-appearance: none; appearance: none;
+  font-size: .9rem; font-family: 'Inter', sans-serif;
+  background: var(--surface); color: var(--text); outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none; appearance: none; box-sizing: border-box;
 }
-.form-stack select:focus, .form-stack input:focus {
+.form-stack select { padding-right: 36px; }
+.form-stack select:focus,
+.form-stack input:focus {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(26,86,219,.1);
+  box-shadow: 0 0 0 3px rgba(26,86,219,.12);
 }
-.agree-row { display: flex; gap: 10px; align-items: flex-start; font-size: .82rem; color: var(--text-muted); line-height: 1.55; cursor: pointer; }
-.agree-row input[type="checkbox"] { accent-color: var(--blue); margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer; }
+.form-stack input::placeholder { color: var(--text-muted); opacity: .65; }
+.agree-row {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: .82rem; color: var(--text-muted); line-height: 1.6; cursor: pointer;
+  padding: 3px 0;
+}
+.agree-row input[type="checkbox"] {
+  accent-color: var(--blue); margin-top: 2px; flex-shrink: 0;
+  width: 17px; height: 17px; cursor: pointer;
+}
 .agree-row a { color: var(--blue); text-decoration: underline; }
 .agree-row span { flex: 1; }
 .btn-submit {
   width: 100%; background: var(--gold); color: var(--navy);
   font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem;
-  padding: 15px; border: none; border-radius: var(--radius); cursor: pointer;
-  transition: background .15s, box-shadow .15s; margin-top: 4px;
+  padding: 15px 20px; border: none; border-radius: var(--radius); cursor: pointer;
+  transition: background .15s, box-shadow .15s, transform .1s; margin-top: 2px;
   letter-spacing: .1px; min-height: 52px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
 }
-.btn-submit:hover { background: var(--gold-dark); box-shadow: var(--shadow-gold); }
+.btn-submit:hover { background: var(--gold-dark); box-shadow: var(--shadow-gold); transform: translateY(-1px); }
+.btn-submit:active { transform: translateY(0); }
+.btn-submit:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+.form-assurance {
+  display: flex; align-items: center; gap: 5px; justify-content: center;
+  font-size: .74rem; color: var(--text-muted); margin: 0;
+}
+
+/* ── MODALS ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.65); z-index: 9999;
+  align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--bg); color: var(--text);
+  border-radius: var(--radius-lg); padding: 32px;
+  max-width: 520px; width: 100%; max-height: 82vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0,0,0,.55); position: relative;
+}
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  background: none; border: none; font-size: 1.5rem; cursor: pointer;
+  color: var(--text-muted); line-height: 1; padding: 4px 8px;
+  border-radius: 6px; transition: background .15s, color .15s;
+}
+.modal-close:hover { background: var(--surface); color: var(--text); }
+.modal-box h3 {
+  font-family: 'DM Sans', sans-serif; font-size: 1.1rem; font-weight: 800;
+  margin-bottom: 16px; color: var(--text); padding-right: 32px;
+}
+.modal-body { overflow-y: auto; flex: 1; }
+.modal-body p { font-size: .84rem; line-height: 1.7; margin-bottom: 14px; color: var(--text-muted); }
+.modal-body p strong { color: var(--text); }
+
 @media (max-width: 940px) { .hero-inner { grid-template-columns: 1fr; } .form-card { max-width: 540px; } }
 @media (max-width: 600px) {
   .hero-inner { gap: 28px; }
@@ -455,6 +517,7 @@ nav a[aria-current="page"] { color: var(--blue); }
 }
 @media (max-width: 420px) {
   .form-card { padding: 18px 14px; }
+  .modal-box { padding: 24px 18px; }
 }
 
 /* ── SECTION ── */
@@ -999,50 +1062,119 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
     <!-- FORM CARD -->
     <div class="form-card">
-      <p class="form-title">Afspraak aanvragen</p>
-      <p>Vul het formulier in en ontvang binnen 30 minuten een bevestiging.</p>
+      <div class="form-card-header">
+        <div class="form-badge">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6L14 5.3l-3 2.9.7 4.1L8 10.1l-3.7 2.2.7-4.1-3-2.9 4.2-.7z" fill="#f59e0b"/></svg>
+          Gratis offerte
+        </div>
+        <p class="form-title">Afspraak aanvragen</p>
+        <p class="form-subtitle">Vul het formulier in — wij bellen u binnen 30 minuten terug.</p>
+      </div>
       <form class="form-stack" name="aanvraag" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitForm(event)">
         <input type="hidden" name="form-name" value="aanvraag">
         <p style="display:none"><label>Niet invullen: <input name="bot-field"></label></p>
-        <select name="probleem" id="probleem" required>
-          <option value="" disabled selected>Selecteer uw probleem</option>
-          <optgroup label="Ontstoppingen">
-            <option>Afvoer verstopt</option>
-            <option>WC verstopt</option>
-            <option>Douche afvoer verstopt</option>
-            <option>Gootsteen verstopt</option>
-            <option>Keukenafvoer verstopt</option>
-            <option>Wasbak verstopt</option>
-            <option>Vaatwasser afvoer verstopt</option>
-            <option>Wasmachine afvoer verstopt</option>
-            <option>Hoofdriool verstopt</option>
-            <option>Regenpijp verstopt</option>
-          </optgroup>
-          <optgroup label="Inspectie &amp; reiniging">
-            <option>Rioolinspectie met camera</option>
-            <option>Rioolreiniging</option>
-            <option>Rookdetectie riool</option>
-            <option>Standleiding reinigen</option>
-            <option>Dakgoot schoonmaken</option>
-            <option>Rioolvliegjes bestrijden</option>
-          </optgroup>
-          <optgroup label="Reparatie &amp; vervanging">
-            <option>Rioolbreuk herstellen</option>
-            <option>Rioolrenovatie</option>
-            <option>Riolering verleggen of vervangen</option>
-            <option>Sanibroyeur defect of vervangen</option>
-          </optgroup>
-          <option value="anders">Ander probleem</option>
-        </select>
-        <input type="text" name="naam" placeholder="Naam" required>
-        <input type="text" name="adres" placeholder="Adres en plaatsnaam" required>
-        <input type="email" name="email" placeholder="E-mailadres" required>
+
+        <div class="form-field">
+          <label class="form-label" for="probleem">Wat is het probleem?</label>
+          <div class="select-wrap">
+            <select name="probleem" id="probleem" required>
+              <option value="" disabled selected>Selecteer uw probleem</option>
+              <optgroup label="Ontstoppingen">
+                <option>Afvoer verstopt</option>
+                <option>WC verstopt</option>
+                <option>Douche afvoer verstopt</option>
+                <option>Gootsteen verstopt</option>
+                <option>Keukenafvoer verstopt</option>
+                <option>Wasbak verstopt</option>
+                <option>Vaatwasser afvoer verstopt</option>
+                <option>Wasmachine afvoer verstopt</option>
+                <option>Hoofdriool verstopt</option>
+                <option>Regenpijp verstopt</option>
+              </optgroup>
+              <optgroup label="Inspectie &amp; reiniging">
+                <option>Rioolinspectie met camera</option>
+                <option>Rioolreiniging</option>
+                <option>Rookdetectie riool</option>
+                <option>Standleiding reinigen</option>
+                <option>Dakgoot schoonmaken</option>
+                <option>Rioolvliegjes bestrijden</option>
+              </optgroup>
+              <optgroup label="Reparatie &amp; vervanging">
+                <option>Rioolbreuk herstellen</option>
+                <option>Rioolrenovatie</option>
+                <option>Riolering verleggen of vervangen</option>
+                <option>Sanibroyeur defect of vervangen</option>
+              </optgroup>
+              <option value="anders">Ander probleem</option>
+            </select>
+            <svg class="select-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="naam">Naam</label>
+            <input type="text" name="naam" id="naam" placeholder="Voor- en achternaam" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="adres">Adres en plaatsnaam</label>
+          <input type="text" name="adres" id="adres" placeholder="bijv. Hoofdstraat 12, Rotterdam" required>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="email">E-mailadres</label>
+          <input type="email" name="email" id="email" placeholder="uw@email.nl" required>
+        </div>
+
         <label class="agree-row">
           <input type="checkbox" name="akkoord" required>
-          <span>Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.</span>
+          <span>Ik ga akkoord met de <a href="#" onclick="openModal('av');return false;">algemene voorwaarden</a> en <a href="#" onclick="openModal('pv');return false;">privacyverklaring</a>.</span>
         </label>
-        <button type="submit" class="btn-submit">Verstuur aanvraag gratis offerte</button>
+
+        <button type="submit" class="btn-submit">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M2 4l6 5 6-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Verstuur aanvraag — gratis offerte
+        </button>
+
+        <p class="form-assurance">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.2 3.7H13l-3.1 2.3 1.2 3.7L8 8.4l-3.1 2.3 1.2-3.7L3 4.7h3.8z" fill="#16a34a"/></svg>
+          Geen verplichtingen &middot; U beslist zelf of u akkoord gaat
+        </p>
       </form>
+    </div>
+
+    <!-- MODAL: Algemene Voorwaarden -->
+    <div id="modal-av" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-av-title" onclick="if(event.target===this)closeModal('av')">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('av')" aria-label="Sluiten">&times;</button>
+        <h3 id="modal-av-title">Algemene Voorwaarden</h3>
+        <div class="modal-body">
+          <p><strong>Artikel 1 — Toepasselijkheid</strong><br>Deze algemene voorwaarden zijn van toepassing op alle diensten die Rioolontoppingsservice verleent aan opdrachtgevers.</p>
+          <p><strong>Artikel 2 — Offertes</strong><br>Alle offertes zijn vrijblijvend en geldig voor 30 dagen. Na akkoord van de opdrachtgever wordt de opdracht vastgelegd.</p>
+          <p><strong>Artikel 3 — Prijzen en betaling</strong><br>Onze prijzen zijn all-in, inclusief voorrijkosten en materiaalkosten. Betaling geschiedt na voltooiing van de werkzaamheden via PIN, iDEAL of contant.</p>
+          <p><strong>Artikel 4 — Garantie</strong><br>Op al onze entstoppingswerkzaamheden verlenen wij 3 maanden garantie. Bij herhaalde verstopping als gevolg van onze werkzaamheden lossen wij dit kosteloos op.</p>
+          <p><strong>Artikel 5 — Aansprakelijkheid</strong><br>Rioolontoppingsservice is aansprakelijk voor schade die aantoonbaar het gevolg is van onze werkzaamheden, tot het bedrag van de factuurwaarde.</p>
+          <p><strong>Artikel 6 — Klachten</strong><br>Klachten dienen binnen 14 dagen na uitvoering schriftelijk te worden ingediend via rioolontoppingsservice@gmail.com.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: Privacyverklaring -->
+    <div id="modal-pv" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-pv-title" onclick="if(event.target===this)closeModal('pv')">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('pv')" aria-label="Sluiten">&times;</button>
+        <h3 id="modal-pv-title">Privacyverklaring</h3>
+        <div class="modal-body">
+          <p><strong>Verwerkingsverantwoordelijke</strong><br>Rioolontoppingsservice, bereikbaar via rioolontoppingsservice@gmail.com.</p>
+          <p><strong>Welke gegevens verzamelen wij?</strong><br>Via het aanvraagformulier verzamelen wij: naam, adres, e-mailadres en de aard van uw probleem.</p>
+          <p><strong>Waarvoor gebruiken wij uw gegevens?</strong><br>Uw gegevens worden uitsluitend gebruikt om uw aanvraag te verwerken, u terug te bellen en de afspraak in te plannen. Wij delen uw gegevens niet met derden.</p>
+          <p><strong>Bewaartermijn</strong><br>Uw gegevens worden bewaard zolang als noodzakelijk voor de uitvoering van de dienst en wettelijke verplichtingen (maximaal 7 jaar voor fiscale gegevens).</p>
+          <p><strong>Uw rechten</strong><br>U heeft het recht op inzage, correctie en verwijdering van uw gegevens. Verzoeken kunt u sturen naar rioolontoppingsservice@gmail.com.</p>
+          <p><strong>AVG</strong><br>Wij verwerken uw gegevens conform de Algemene Verordening Gegevensbescherming (AVG / GDPR).</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1914,6 +2046,18 @@ function toggleFaq(btn) {
     body.classList.add('open');
   }
 }
+function openModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeModal(id) {
+  var el = document.getElementById('modal-' + id);
+  if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeModal('av'); closeModal('pv'); }
+});
+
 function submitForm(e) {
   e.preventDefault();
   const form = e.target;

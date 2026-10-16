@@ -316,8 +316,9 @@ nav a[aria-current="page"] { color: var(--blue); }
 .hero {
   background: var(--bg-dark);
   color: #fff;
-  padding: 56px max(16px, env(safe-area-inset-left, 0px));
+  padding: 72px max(16px, env(safe-area-inset-left, 0px)) 80px;
   padding-right: max(16px, env(safe-area-inset-right, 0px));
+  min-height: 580px;
   position: relative;
   overflow: hidden;
 }
@@ -325,7 +326,7 @@ nav a[aria-current="page"] { color: var(--blue); }
   position: absolute; inset: 0;
   background-image: url('hero.jpg');
   background-size: cover;
-  background-position: center 30%;
+  background-position: 70% top;
   z-index: 0;
 }
 .hero-bg-photo::after {

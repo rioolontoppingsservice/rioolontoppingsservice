@@ -1102,8 +1102,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
   z-index: 200;
   display: flex; flex-direction: row; gap: 10px;
   background: rgba(255,255,255,.97);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid var(--border);
   box-shadow: 0 -4px 20px rgba(10,22,40,.1);
   opacity: 0; pointer-events: none; transform: translateY(100%);
@@ -1117,11 +1117,70 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
   display: flex; align-items: center; justify-content: center; gap: 8px;
   min-height: 52px; flex: 1;
   padding: 14px 16px; border-radius: var(--radius-full);
-  font-family: 'Inter', sans-serif; font-weight: 700; font-size: .97rem;
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: .92rem;
   text-decoration: none; box-shadow: 0 4px 14px rgba(24,71,196,.4), var(--glow-blue);
   transition: var(--transition);
 }
 .float-cta:hover { background: var(--blue-dark); box-shadow: 0 6px 20px rgba(24,71,196,.5); transform: translateY(-1px); }
+
+.float-cta--wa {
+  background: #25D366; color: #fff;
+  flex: 0 0 52px; width: 52px; min-height: 52px; padding: 0;
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(37,211,102,.45);
+  text-decoration: none; transition: var(--transition);
+}
+.float-cta--wa:hover { background: #1ebe5d; transform: translateY(-1px); }
+
+.float-cta--bel {
+  background: var(--navy); color: #fff;
+  flex: 0 0 52px; width: 52px; min-height: 52px; padding: 0;
+  border-radius: var(--radius-full);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(7,19,34,.35);
+  text-decoration: none; transition: var(--transition);
+}
+.float-cta--bel:hover { background: #0a1e35; transform: translateY(-1px); }
+
+/* Drijvende WhatsApp-knop (altijd zichtbaar, desktop rechtsonder) */
+.wa-float {
+  position: fixed;
+  bottom: max(28px, env(safe-area-inset-bottom, 28px));
+  right: max(24px, env(safe-area-inset-right, 24px));
+  z-index: 300;
+  width: 60px; height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 28px rgba(37,211,102,.55), 0 2px 8px rgba(0,0,0,.18);
+  text-decoration: none;
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s;
+  animation: wa-bounce 3s ease-in-out 2s infinite;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 12px 36px rgba(37,211,102,.7); animation: none; }
+.wa-float-label {
+  position: absolute;
+  right: 68px;
+  background: #fff;
+  color: #111;
+  font-size: .78rem; font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,.14);
+  white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transform: translateX(6px);
+  transition: opacity .18s, transform .18s;
+}
+.wa-float:hover .wa-float-label { opacity: 1; transform: translateX(0); }
+/* Op mobiel verbergen - float-btns neemt het over */
+@media (max-width: 819px) { .wa-float { display: none; } }
+
+@keyframes wa-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
 
 
 /* ── SOCIAL ICONS ── */
@@ -1161,21 +1220,53 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 }
 
 .contact-phone-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-.contact-link--call { background: var(--blue); color: #fff !important; border-color: var(--blue); }
-.contact-link--call:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
-.contact-link--wa { background: #25D366; color: #fff !important; border-color: #25D366; }
-.contact-link--wa:hover { background: #1ebe5d; border-color: #1ebe5d; }
+.contact-link--call { background: var(--blue); color: #fff !important; border-color: var(--blue); gap: 6px; }
+.contact-link--call:hover { background: var(--blue-dark); border-color: var(--blue-dark); transform: translateY(-1px); }
+.contact-link--wa { background: #25D366; color: #fff !important; border-color: #25D366; gap: 6px; }
+.contact-link--wa:hover { background: #1ebe5d; border-color: #1ebe5d; transform: translateY(-1px); }
+
+.contact-icon--wa { background: #25D366 !important; border-color: rgba(37,211,102,.25) !important; }
+.contact-value--big { font-size: 1.25rem !important; font-weight: 800 !important; letter-spacing: -.5px; }
+
+.contact-response-time {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 12px;
+  font-size: .75rem; color: var(--text-muted); font-weight: 500;
+}
+.pulse-green {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  background: #22c55e; flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.4);
+  animation: pulse-green 2s infinite;
+}
+@keyframes pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,.4); }
+  70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
 </style>
 
 <a href="#main" class="skip">Ga naar inhoud</a>
 
 <!-- FLOATING BUTTONS (mobile) -->
 <div class="float-btns" id="floatBtns">
-<a href="#main" class="float-cta" aria-label="Afspraak aanvragen">
+  <a href="tel:+31613137578" class="float-cta--bel" aria-label="Bellen">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <a href="#main" class="float-cta" aria-label="Afspraak aanvragen">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M2 4l6 5 6-5" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     Aanvragen
   </a>
+  <a href="https://wa.me/31613137578" target="_blank" rel="noopener" class="float-cta--wa" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.123 1.527 5.855L0 24l6.335-1.511A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.034-1.394l-.36-.215-3.729.888.939-3.644-.236-.374A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+  </a>
 </div>
+
+<!-- DRIJVENDE WHATSAPP KNOP (desktop) -->
+<a href="https://wa.me/31613137578" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp ons">
+  <span class="wa-float-label">WhatsApp ons</span>
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.123 1.527 5.855L0 24l6.335-1.511A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.034-1.394l-.36-.215-3.729.888.939-3.644-.236-.374A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+</a>
 
 <!-- NOTICE verwijderd - info staat al in hero -->
 
@@ -2166,15 +2257,24 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
         <a href="#main" class="contact-link">Formulier invullen</a>
       </div>
       <div class="contact-card contact-card--phone">
-        <div class="contact-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="contact-icon contact-icon--wa">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.123 1.527 5.855L0 24l6.335-1.511A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.034-1.394l-.36-.215-3.729.888.939-3.644-.236-.374A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
         </div>
-        <h3 class="contact-card-title">Bellen of WhatsApp</h3>
-        <p class="contact-card-desc">Direct contact? Bel ons of stuur een WhatsApp-bericht.</p>
-        <div class="contact-value">06 13 13 75 78</div>
+        <h3 class="contact-card-title">Direct bereikbaar</h3>
+        <p class="contact-card-desc">Bel ons of stuur een WhatsApp — wij reageren direct.</p>
+        <div class="contact-value contact-value--big">06 13 13 75 78</div>
         <div class="contact-phone-btns">
-          <a href="tel:+31613137578" class="contact-link contact-link--call">Bellen</a>
-          <a href="https://wa.me/31613137578" target="_blank" rel="noopener" class="contact-link contact-link--wa">WhatsApp</a>
+          <a href="tel:+31613137578" class="contact-link contact-link--call">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Bellen
+          </a>
+          <a href="https://wa.me/31613137578" target="_blank" rel="noopener" class="contact-link contact-link--wa">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.123 1.527 5.855L0 24l6.335-1.511A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.034-1.394l-.36-.215-3.729.888.939-3.644-.236-.374A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <div class="contact-response-time">
+          <span class="pulse-green"></span> Gemiddeld binnen 5 minuten reactie
         </div>
       </div>
       <div class="contact-card">
@@ -2219,7 +2319,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
       <div class="footer-logo">Riool<strong>Ontoppingsservice</strong></div>
       <p>Eerlijke rioolservice met vaste prijzen, geen voorrijkosten en 3 maanden garantie. Eigen monteurs, herkenbare wagens.</p>
       <a href="#main" class="footer-tel" style="font-size:.95rem">Aanvraag indienen</a>
-      <a href="tel:+31613137578" class="footer-tel" style="font-size:.95rem;margin-top:8px">Bellen: 06 13 13 75 78</a>
+      <a href="tel:+31613137578" class="footer-tel" style="font-size:.95rem;margin-top:8px;display:flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>06 13 13 75 78</a>
+      <a href="https://wa.me/31613137578" target="_blank" rel="noopener" class="footer-tel" style="font-size:.88rem;margin-top:6px;color:#25D366 !important;display:flex;align-items:center;gap:8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.123 1.527 5.855L0 24l6.335-1.511A11.933 11.933 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.796 9.796 0 0 1-5.034-1.394l-.36-.215-3.729.888.939-3.644-.236-.374A9.797 9.797 0 0 1 2.182 12C2.182 6.58 6.58 2.182 12 2.182S21.818 6.58 21.818 12 17.42 21.818 12 21.818z"/></svg>WhatsApp sturen</a>
       <div class="footer-hours">Maandag Zondag &middot; 24 uur per dag</div>
       <address style="font-style:normal;font-size:.78rem;color:rgba(255,255,255,.45);margin-top:8px;line-height:1.6">
         Actief in geheel <strong style="color:rgba(255,255,255,.6)">Zuid-Holland</strong> &middot; NL

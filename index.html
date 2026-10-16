@@ -341,23 +341,22 @@ nav a[aria-current="page"] { color: var(--blue); }
   position: relative;
   overflow: hidden;
 }
-/* Echte gradient achtergrond — geen foto nodig */
+/* Subtiele stippenpatroon overlay (achter de foto) */
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 70% 80% at 80% 50%, rgba(24,71,196,.22) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(13,31,56,.6) 0%, transparent 60%),
-    linear-gradient(135deg, #050e1c 0%, #0a1830 40%, #0d1f38 100%);
-  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 32px 32px;
+  z-index: 1;
+  pointer-events: none;
 }
-/* Subtiele ruitpatroon */
+/* Blauwe glow overlay links bovenop de foto */
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 32px 32px;
-  z-index: 0;
+  background: radial-gradient(ellipse 55% 70% at 20% 60%, rgba(24,71,196,.18) 0%, transparent 65%);
+  z-index: 1;
+  pointer-events: none;
 }
 .hero-bg-photo {
   position: absolute; inset: 0;
@@ -367,19 +366,19 @@ nav a[aria-current="page"] { color: var(--blue); }
 .hero-bg-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: 50% top;
+  object-position: 50% 30%;
   display: block;
-  opacity: .2;
-  mix-blend-mode: luminosity;
+  opacity: 1;
 }
+/* Donkere overlay zodat tekst leesbaar blijft, foto zichtbaar blijft */
 .hero-bg-photo::after {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
-    100deg,
-    rgba(5,14,28,.92) 0%,
-    rgba(5,14,28,.75) 50%,
-    rgba(5,14,28,.5) 100%
+    105deg,
+    rgba(5,14,28,.82) 0%,
+    rgba(5,14,28,.60) 45%,
+    rgba(5,14,28,.30) 100%
   );
 }
 .hero-inner { position: relative; z-index: 1; }

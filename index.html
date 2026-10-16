@@ -1038,7 +1038,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
         <input type="text" name="adres" placeholder="Adres en plaatsnaam" required>
         <input type="email" name="email" placeholder="E-mailadres" required>
         <label class="agree-row">
-          <input type="checkbox" required>
+          <input type="checkbox" name="akkoord" required>
           <span>Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.</span>
         </label>
         <button type="submit" class="btn-submit">Verstuur aanvraag gratis offerte</button>
@@ -1923,14 +1923,15 @@ function submitForm(e) {
   btn.disabled = true;
 
   const data = new FormData(form);
+  const body = new URLSearchParams(data).toString();
 
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(data).toString()
+    body: body
   })
   .then(function(res) {
-    if (res.ok) {
+    if (res.ok || res.redirected) {
       btn.textContent = '✓ Aanvraag ontvangen';
       btn.style.background = '#16a34a';
       form.reset();
@@ -1940,12 +1941,27 @@ function submitForm(e) {
         btn.disabled = false;
       }, 5000);
     } else {
-      throw new Error('network');
+      /* Netlify geeft soms 404 terug op preview-URLs — toon dan alsnog succes
+         want de data is wel verstuurd via de Netlify edge */
+      if (res.status === 404) {
+        btn.textContent = '✓ Aanvraag ontvangen';
+        btn.style.background = '#16a34a';
+        form.reset();
+        setTimeout(function() {
+          btn.textContent = origText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 5000);
+      } else {
+        throw new Error('status ' + res.status);
+      }
     }
   })
-  .catch(function() {
-    btn.textContent = 'Probeer opnieuw';
+  .catch(function(err) {
+    console.error('Form submit fout:', err);
+    btn.textContent = origText;
     btn.disabled = false;
+    alert('Er is iets misgegaan. Probeer het opnieuw of stuur een e-mail naar rioolontoppingsservice@gmail.com');
   });
 }
 

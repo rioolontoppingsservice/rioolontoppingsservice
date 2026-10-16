@@ -416,9 +416,10 @@ nav a[aria-current="page"] { color: var(--blue); }
   border-radius: var(--radius-lg); padding: 30px;
   box-shadow: 0 12px 48px rgba(0,0,0,.35);
 }
-.form-card h2 {
-  font-family: 'DM Sans', sans-serif; font-size: .92rem; font-weight: 700;
-  color: var(--text); margin-bottom: 4px;
+.form-card h2, .form-title {
+  font-family: 'DM Sans', sans-serif; font-size: .78rem; font-weight: 700;
+  color: var(--text-muted); margin-bottom: 4px; text-transform: uppercase;
+  letter-spacing: .6px;
 }
 .form-card p { font-size: .82rem; color: var(--text-muted); margin-bottom: 20px; }
 .form-stack { display: flex; flex-direction: column; gap: 11px; }
@@ -998,7 +999,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
     <!-- FORM CARD -->
     <div class="form-card">
-      <h2>Afspraak aanvragen vandaag nog geholpen</h2>
+      <p class="form-title">Afspraak aanvragen</p>
       <p>Vul het formulier in en ontvang binnen 30 minuten een bevestiging.</p>
       <form class="form-stack" onsubmit="submitForm(event)">
         <select id="probleem" required>

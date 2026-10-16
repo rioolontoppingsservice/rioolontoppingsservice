@@ -282,7 +282,15 @@ nav a:hover { background: var(--bg-alt); color: var(--text); }
 .rev-text { font-size: .85rem; color: var(--text-sub); line-height: 1.65; }
 
 /* ── SERVICES ── */
-.svc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 44px; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 20px; }
+.svc-cat { margin-top: 52px; }
+.svc-cat:first-of-type { margin-top: 44px; }
+.svc-cat-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 6px; padding-bottom: 18px; border-bottom: 2px solid var(--blue-light); }
+.svc-cat-icon { width: 40px; height: 40px; background: var(--blue); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.svc-cat-icon svg { color: #fff; }
+.svc-cat-icon svg path, .svc-cat-icon svg circle, .svc-cat-icon svg rect { stroke: #fff; }
+.svc-cat-title { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--text); line-height: 1.2; }
+.svc-cat-sub { font-size: .82rem; color: var(--text-muted); margin-top: 3px; }
 .svc {
   background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg);
   padding: 22px 18px; text-decoration: none; color: var(--text);
@@ -668,81 +676,272 @@ footer { background: var(--bg-dark); color: rgba(255,255,255,.7); padding: 60px 
   <div class="wrap">
     <p class="section-eyebrow">Ons aanbod</p>
     <h2 class="section-h">Alle rioolservices</h2>
-    <p class="section-lead">Van een eenvoudige verstopping tot een volledige rioolrenovatie &mdash; wij beschikken over de kennis en de middelen.</p>
-    <div class="svc-grid">
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="6" y="1" width="6" height="9" rx="3" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 8h6M4 17h10a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <p class="section-lead">Van een eenvoudige verstopping tot een volledige rioolrenovatie &mdash; wij beschikken over de kennis en de middelen voor elk rioolprobleem.</p>
+
+    <!-- CATEGORIE 1: ONTSTOPPINGEN -->
+    <div class="svc-cat">
+      <div class="svc-cat-head">
+        <div class="svc-cat-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16h12M10 4v8M7 9l3 3 3-3" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
-        <div class="svc-name">WC ontstoppen</div>
-        <div class="svc-desc">Toilet verstopt? Wij lossen het direct op met professioneel gereedschap.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14h12M3 14c0-4 2-7 6-7s6 3 6 7" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M9 7V3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M6 5l3-2 3 2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div>
+          <div class="svc-cat-title">Ontstoppingen</div>
+          <div class="svc-cat-sub">Alle afvoer- en rioolverstopping binnen en buiten</div>
         </div>
-        <div class="svc-name">Douche afvoer</div>
-        <div class="svc-desc">Douche loopt niet meer weg? Onze monteur verhelpt de verstopping snel.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 10h14l-1 4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1l-1-4z" stroke="#1A56DB" stroke-width="1.4"/><path d="M5 10V6a4 4 0 0 1 8 0v4" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <div class="svc-name">Keukenafvoer</div>
-        <div class="svc-desc">Vetaanslag en voedselresten blokkeren de keukenafvoer. Wij reinigen hem grondig.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 3v2M9 13v2M3 9h2M13 9h2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg>
-        </div>
-        <div class="svc-name">Rioolinspectie</div>
-        <div class="svc-desc">Met HD camera brengen wij de staat van uw riolering volledig in kaart.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 9h14M9 2v14" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#1A56DB" stroke-width="1.4"/></svg>
-        </div>
-        <div class="svc-name">Hoofdriool</div>
-        <div class="svc-desc">Hogedruk reiniging van de hoofdleiding met camera-inspectie inbegrepen.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3c0 0-5 3-5 8s5 5 5 5 5-2 5-5-5-8-5-8z" stroke="#1A56DB" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 9v3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="7.5" r=".8" fill="#1A56DB"/></svg>
-        </div>
-        <div class="svc-name">Rookdetectie</div>
-        <div class="svc-desc">Lekke verbindingen en gaten nauwkeurig opsporen met rookdetectie.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 13l8-8M9 5l4 4" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M3 15l3-3" stroke="#1A56DB" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div class="svc-name">Rioolbreuk</div>
-        <div class="svc-desc">Beschadigde riolering herstellen of vervangen, binnen en buiten.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="7" width="12" height="8" rx="1.5" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 7V5.5a3 3 0 0 1 6 0V7" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="11" r="1.2" fill="#1A56DB"/></svg>
-        </div>
-        <div class="svc-name">Rioolvliegjes</div>
-        <div class="svc-desc">Kleine vliegjes rond de afvoer? Wij bestrijden ze bij de bron.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
-      <a href="#" class="svc">
-        <div class="svc-icon">
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 6v3l2 2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div class="svc-name">Sanibroyeur</div>
-        <div class="svc-desc">Sanibroyeur defect of verstopt? Wij repareren of vervangen hem.</div>
-        <div class="svc-link">Meer informatie</div>
-      </a>
+      </div>
+      <div class="svc-grid">
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="6" y="1" width="6" height="9" rx="3" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 8h6M4 17h10a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2z" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">WC ontstoppen</div>
+          <div class="svc-desc">Toilet volledig geblokkeerd? Wij lossen het direct op, ook bij hardnekkige verstopping dieper in de leiding.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14h12M3 14c0-4 2-7 6-7s6 3 6 7" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M9 7V3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Douche afvoer ontstoppen</div>
+          <div class="svc-desc">Haar, zeepvet of kalkaanslag blokkeren de doucheafvoer. Snel verholpen met professioneel gereedschap.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 10h14l-1 4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1l-1-4z" stroke="#1A56DB" stroke-width="1.4"/><path d="M5 10V6a4 4 0 0 1 8 0v4" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Keukenafvoer ontstoppen</div>
+          <div class="svc-desc">Vetaanslag en voedselresten zorgen voor trage of geblokkeerde keukenafvoer. Grondig reinigen met hogedruk.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><ellipse cx="9" cy="7" rx="5" ry="4" stroke="#1A56DB" stroke-width="1.4"/><path d="M4 11c0 2.2 2.2 4 5 4s5-1.8 5-4" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 11v3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Wasbak / gootsteen ontstoppen</div>
+          <div class="svc-desc">Badkamergootsteen of wasbak loopt niet weg? Wij reinigen de sifon en de afvoerleiding volledig.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="9" rx="1.5" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 9v2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Wasmachine afvoer ontstoppen</div>
+          <div class="svc-desc">Wasmachine loopt niet leeg of pompt terug? Verstopte afvoerleiding of stankafsluiter gereinigd.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="4" width="12" height="10" rx="1.5" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 4V3M12 4V3M3 8h12" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Vaatwasser afvoer ontstoppen</div>
+          <div class="svc-desc">Vaatwasser pompt slecht weg of staat vol water? Afvoerslang en aansluitpunt worden gereinigd.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M2 9h14" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="9" r="6" stroke="#1A56DB" stroke-width="1.4"/></svg></div>
+          <div class="svc-name">Hoofdriool ontstoppen</div>
+          <div class="svc-desc">Meerdere afvoeren tegelijk verstopt? Hoogstwaarschijnlijk een blokkade in het hoofdriool. Hogedruk reiniging.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3h8l1 4H4L5 3z" stroke="#1A56DB" stroke-width="1.4" stroke-linejoin="round"/><path d="M4 7v8h10V7" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M9 10v2M7 10v2M11 10v2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Standleiding reinigen</div>
+          <div class="svc-desc">De verticale standleiding die meerdere verdiepingen verbindt verstopt door vetaanslag of kalkaanslag. Wij reinigen hem volledig.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V5l4-2h4l4 2v10" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 15v-4h4v4" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Regenpijp / hemelwaterafvoer</div>
+          <div class="svc-desc">Regenpijp verstopt door bladeren of vuil? Wij reinigen de pijp en de aansluiting op het riool.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 6h14M5 6V4h8v2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Dakgoot schoonmaken</div>
+          <div class="svc-desc">Verstopte dakgoot zorgt voor wateroverlast aan de gevel. Wij verwijderen bladeren, mos en vuil grondig.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 9c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 3-3 3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="9" r="1" fill="#1A56DB"/></svg></div>
+          <div class="svc-name">Kolkput / straatkolk reinigen</div>
+          <div class="svc-desc">Kolkput op het erf of oprit verstopt of vol slib? Wij zuigen hem leeg en spoelen de aansluiting door.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M3 9v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V9" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 12v2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Toilet ontstopper (spoeling)</div>
+          <div class="svc-desc">Toilet trekt slecht door of blijft doorlopen? Wij controleren spoelkraan, vlotter en de afvoerleiding.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+      </div>
     </div>
+
+    <!-- CATEGORIE 2: INSPECTIE & REINIGING -->
+    <div class="svc-cat">
+      <div class="svc-cat-head">
+        <div class="svc-cat-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="3" stroke="#1A56DB" stroke-width="1.5"/><path d="M10 4v2M10 14v2M4 10h2M14 10h2" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="svc-cat-title">Inspectie &amp; reiniging</div>
+          <div class="svc-cat-sub">Inzicht in de staat van uw riolering, preventief en diagnostisch</div>
+        </div>
+      </div>
+      <div class="svc-grid">
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 3v2M9 13v2M3 9h2M13 9h2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Rioolinspectie met camera</div>
+          <div class="svc-desc">HD camera-inspectie brengt de volledige staat van uw riolering in kaart. Inclusief schriftelijke rapportage en beeldverslag.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3c0 0-5 3-5 8s5 5 5 5 5-2 5-5-5-8-5-8z" stroke="#1A56DB" stroke-width="1.4" stroke-linejoin="round"/><path d="M9 9v3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="7.5" r=".8" fill="#1A56DB"/></svg></div>
+          <div class="svc-name">Rookdetectie riool</div>
+          <div class="svc-desc">Met rookdetectie worden lekke verbindingen, gaten en foutieve aansluitingen nauwkeurig gelokaliseerd, zonder graafwerk.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3c0 0-5 3-5 8s5 5 5 5 5-2 5-5-5-8-5-8z" stroke="#1A56DB" stroke-width="1.4" stroke-linejoin="round"/><circle cx="9" cy="9" r="3" stroke="#1A56DB" stroke-width="1.4"/></svg></div>
+          <div class="svc-name">Rookdetectie + camera combinatie</div>
+          <div class="svc-desc">De meest volledige diagnose: camera toont de inwendige staat, rookdetectie spoort lekken op. Één bezoek, volledig beeld.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15V5M3 5l3-2 4 2 5-2v10l-5 2-4-2-3 2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Rioolreiniging hogedruk</div>
+          <div class="svc-desc">Preventief of na verstopping: wij reinigen de riolering grondig met hogedruk water. Vetaanslag, kalklaag en slib worden verwijderd.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v14M5 6h8M5 10h8" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Riool ontstoppen met veer</div>
+          <div class="svc-desc">Bij taaie verstopping diep in de leiding wordt een elektrische rioolslang (veer) ingezet om de blokkade mechanisch te verwijderen.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Rioolvliegjes bestrijden</div>
+          <div class="svc-desc">Kleine vliegjes rond de afvoer of toilet zijn een teken van een vervuilde leiding. Wij reinigen bij de bron en verhelpen de oorzaak.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 14h14M5 14V8l4-5 4 5v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 14v-3h2v3" stroke="#1A56DB" stroke-width="1.4"/></svg></div>
+          <div class="svc-name">Puinput / verzamelput reinigen</div>
+          <div class="svc-desc">Overvolle verzamelput of inspectieput op het perceel? Wij zuigen de put leeg en controleren de aansluitingen.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2c3.9 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7z" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 6v4l2 2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Vetput reinigen</div>
+          <div class="svc-desc">Vetafscheider vol of overgelopen bij horeca of bedrijf? Wij zuigen de vetput leeg en reinigen de vlotterkap en aansluitingen.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORIE 3: REPARATIE & RENOVATIE -->
+    <div class="svc-cat">
+      <div class="svc-cat-head">
+        <div class="svc-cat-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16l4-4M14 4l-6 6" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round"/><path d="M15 5a2 2 0 0 0-3 0l-7 7a2 2 0 0 0 3 3l7-7a2 2 0 0 0 0-3z" stroke="#1A56DB" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="svc-cat-title">Reparatie &amp; renovatie</div>
+          <div class="svc-cat-sub">Herstel van beschadigde of verouderde riolering, binnen en buiten</div>
+        </div>
+      </div>
+      <div class="svc-grid">
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 13l8-8M9 5l4 4" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M3 15l3-3" stroke="#1A56DB" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Rioolbreuk herstellen</div>
+          <div class="svc-desc">Gebroken rioolbuis door verzakking, boomwortels of ouderdom? Wij lokaliseren de breuk en herstellen of vervangen de beschadigde sectie.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M9 3c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M12 3l3 3-3 3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Rioolrenovatie (relining)</div>
+          <div class="svc-desc">Versleten of gescheurde buizen van binnenuit vernieuwen zonder graafwerk. Een flexibele hars-liner wordt ingebracht en uitgehard.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h5M10 9h5M8 6v6M10 6v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Riolering verleggen of vervangen</div>
+          <div class="svc-desc">Volledige vervanging of verlegging van de riolering. Wij regelen graafwerk, nieuwe buizen en de aansluiting op het gemeenteriool.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#1A56DB" stroke-width="1.4"/><path d="M9 6v3l2 2" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Sanibroyeur repareren of vervangen</div>
+          <div class="svc-desc">Sanibroyeur maakt lawaai, pompt niet meer of is verstopt? Wij diagnosticeren het probleem en repareren of vervangen het apparaat.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 14v2M12 14v2M2 9h14" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Nieuwe toiletpot plaatsen</div>
+          <div class="svc-desc">Toilet aan vervanging toe? Wij verwijderen de oude toiletpot, plaatsen de nieuwe en sluiten hem aan op afvoer en watertoevoer.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14h10M7 14V8l2-4 2 4v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10h3M10 10h3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Sifon vervangen</div>
+          <div class="svc-desc">Lekkende of verstopte sifon onder de gootsteen, wasbak of douche? Wij vervangen hem door een nieuwe met de juiste aansluitmaten.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v6l3 3" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="12" r="4" stroke="#1A56DB" stroke-width="1.4"/></svg></div>
+          <div class="svc-name">Boomwortels verwijderen uit riool</div>
+          <div class="svc-desc">Boomwortels dringen via naden en scheuren het riool binnen. Wij verwijderen de wortels met een freeskop en herstellen de beschadigde verbinding.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15l12-12M9 3h6v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 9l6 6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Rioolleiding isoleren / aanleggen</div>
+          <div class="svc-desc">Nieuwe afvoerleiding aanleggen voor een uitbouw, badkamer of keuken. Wij berekenen het verval en leggen een deugdelijke aansluiting aan.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CATEGORIE 4: OVERIGE DIENSTEN -->
+    <div class="svc-cat">
+      <div class="svc-cat-head">
+        <div class="svc-cat-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#1A56DB" stroke-width="1.5"/><path d="M10 7v4M10 13v1" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="svc-cat-title">Overige diensten</div>
+          <div class="svc-cat-sub">Specialistische diensten voor bedrijven, VvE&rsquo;s en zorginstellingen</div>
+        </div>
+      </div>
+      <div class="svc-grid">
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="7" width="12" height="8" rx="1.5" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 7V5.5a3 3 0 0 1 6 0V7" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="11" r="1.2" fill="#1A56DB"/></svg></div>
+          <div class="svc-name">Onderhoudscontract</div>
+          <div class="svc-desc">Voor woningcorporaties, VvE&rsquo;s en bedrijven: periodiek onderhoud en inspectie van de riolering, met vaste lage responstijd bij storingen.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2l2 5h5l-4 3 1.5 5L9 12l-4.5 3L6 10l-4-3h5L9 2z" stroke="#1A56DB" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Spoedservice 24/7</div>
+          <div class="svc-desc">Rioolnoodgeval buiten kantooruren? Onze spoeddienst is bereikbaar op avonden, nachten, weekenden en feestdagen.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 9l3 3 5-5" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="9" r="7" stroke="#1A56DB" stroke-width="1.4"/></svg></div>
+          <div class="svc-name">Riooldichtheidstest (put-proef)</div>
+          <div class="svc-desc">Voor nieuwbouw, aan- en verbouw of bij vermoeden van lekkage: wij voeren een wettelijk erkende dichtheidstest uit met rapportage.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/><path d="M9 12v-2l-2-1" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Septic tank / IBA reinigen</div>
+          <div class="svc-desc">Septic tank vol of slecht werkend? Wij zuigen de tank leeg, controleren de filterelementen en beoordelen de werking van het systeem.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2l1.5 4H15l-3.5 2.5 1.5 4L9 10l-4 2.5 1.5-4L3 6h4.5L9 2z" stroke="#1A56DB" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg></div>
+          <div class="svc-name">Riooladvies &amp; offerte</div>
+          <div class="svc-desc">Verbouwing gepland of langdurig rioolprobleem? Wij komen langs voor een gratis inspectie en vrijblijvend advies met vaste prijsopgave.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+        <a href="#" class="svc">
+          <div class="svc-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#1A56DB" stroke-width="1.4"/><path d="M6 9h6M9 6v6" stroke="#1A56DB" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <div class="svc-name">Verzekering schade-opname</div>
+          <div class="svc-desc">Schade aan de riolering door overstroming, breuk of lekkage? Wij stellen een gedetailleerd schade-rapport op voor uw verzekering.</div>
+          <div class="svc-link">Meer informatie</div>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 

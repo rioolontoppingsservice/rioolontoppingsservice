@@ -401,9 +401,10 @@ nav a[aria-current="page"] { background: var(--bg-alt); color: var(--blue); }
   border-color: var(--blue);
   box-shadow: 0 0 0 3px rgba(26,86,219,.1);
 }
-.agree-row { display: flex; gap: 9px; align-items: flex-start; font-size: .78rem; color: var(--text-muted); line-height: 1.5; }
-.agree-row input { accent-color: var(--blue); margin-top: 2px; flex-shrink: 0; }
-.agree-row a { color: var(--blue); }
+.agree-row { display: flex; gap: 10px; align-items: flex-start; font-size: .82rem; color: var(--text-muted); line-height: 1.55; cursor: pointer; }
+.agree-row input[type="checkbox"] { accent-color: var(--blue); margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; cursor: pointer; }
+.agree-row a { color: var(--blue); text-decoration: underline; }
+.agree-row span { flex: 1; }
 .btn-submit {
   width: 100%; background: var(--blue); color: #fff;
   font-family: 'Inter', sans-serif; font-weight: 600; font-size: .95rem;
@@ -1056,7 +1057,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
         <input type="tel" placeholder="Telefoonnummer" required>
         <label class="agree-row">
           <input type="checkbox" required>
-          Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.
+          <span>Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.</span>
         </label>
         <button type="submit" class="btn-submit">Verstuur aanvraag — gratis offerte</button>
       </form>

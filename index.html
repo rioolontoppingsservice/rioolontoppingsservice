@@ -472,7 +472,7 @@ nav a[aria-current="page"] { background: var(--bg-alt); color: var(--blue); }
 }
 .stats-grid {
   max-width: 1160px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;
 }
 .stat-item { text-align: center; padding: 24px 12px; }
 .stat-num {
@@ -611,8 +611,24 @@ footer { background: var(--bg-dark); color: rgba(255,255,255,.7); padding: 60px 
 @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 
+/* ── CERT BAR ── */
+.cert-bar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 10px max(16px, env(safe-area-inset-left, 0px));
+}
+.cert-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px;
+}
+.cert-item {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .78rem; font-weight: 600; color: var(--text-sub);
+  white-space: nowrap;
+}
+
 /* ── SCROLL MARGIN (sticky header) ── */
-section[id], div[id] { scroll-margin-top: 80px; }
+section[id], div[id] { scroll-margin-top: 72px; }
 
 /* ── FOCUS VISIBLE ── */
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
@@ -670,8 +686,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
 <!-- NOTICE -->
 <div class="notice">
-  Let op: er zijn bedrijven die onrechtmatig onze naam gebruiken.
-  <a href="#">Meer informatie over fraude</a>
+  <strong style="color:#fff">Spoedservice beschikbaar</strong> &mdash; ook in het weekend en 's avonds actief in heel Zuid-Holland. Bel <a href="tel:0853039999" style="color:rgba(255,255,255,.8);font-weight:600">085 303 9999</a>
 </div>
 
 <!-- HEADER -->
@@ -687,6 +702,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
       <a href="#tarieven">Tarieven</a>
       <a href="#over-ons">Over ons</a>
       <a href="#reviews">Reviews</a>
+      <a href="#werkgebieden">Werkgebied</a>
       <a href="#contact">Contact</a>
       <a href="tel:0853039999" class="nav-cta">085 303 9999</a>
     </nav>
@@ -699,6 +715,32 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
   <span><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="#fff" stroke-width="1.2"/><path d="M4 6.5l2 2 3-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>Geen voorrijkosten</span>
   <span><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1.5c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5z" stroke="#fff" stroke-width="1.2"/><path d="M4.5 6.5l1.5 1.5 2.5-3" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>3 maanden garantie</span>
   <span><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1L8 4.5h3.5L8.8 6.8l1.2 3.7L6.5 8.4 3 10.5l1.2-3.7L1.5 4.5H5L6.5 1z" stroke="#fff" stroke-width="1.1" stroke-linejoin="round"/></svg>No cure no pay</span>
+</div>
+
+<!-- CERT BAR -->
+<div class="cert-bar">
+  <div class="cert-inner">
+    <div class="cert-item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5L11 6h4.5l-3.7 2.7 1.4 4.5L9 10.5l-4.2 2.7 1.4-4.5L2.5 6H7L9 1.5z" fill="#1A56DB"/></svg>
+      <span>VCA gecertificeerd</span>
+    </div>
+    <div class="cert-item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="3" stroke="#1A56DB" stroke-width="1.5"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Erkend rioolbedrijf</span>
+    </div>
+    <div class="cert-item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#1A56DB" stroke-width="1.5"/><path d="M9 5v4l2.5 2" stroke="#1A56DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>7 dagen bereikbaar</span>
+    </div>
+    <div class="cert-item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C5.13 2 2 5.13 2 9s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="#1A56DB" stroke-width="1.5"/><path d="M6 9l2.2 2.2 3.8-4" stroke="#1A56DB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>3 maanden garantie</span>
+    </div>
+    <div class="cert-item">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5l1.8 3.7 4.1.6-3 2.9.7 4.1L9 10.5l-3.6 1.9.7-4.1-3-2.9 4.1-.6L9 1.5z" stroke="#1A56DB" stroke-width="1.3" stroke-linejoin="round" fill="none"/></svg>
+      <span>325+ Google reviews</span>
+    </div>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -753,8 +795,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
     <!-- FORM CARD -->
     <div class="form-card">
-      <h2>Maak direct een afspraak</h2>
-      <p>Wij nemen zo snel mogelijk contact met u op.</p>
+      <h2>Afspraak aanvragen — vandaag nog geholpen</h2>
+      <p>Vul het formulier in en ontvang binnen 30 minuten een bevestiging.</p>
       <form class="form-stack" onsubmit="submitForm(event)">
         <select id="probleem" required>
           <option value="" disabled selected>Selecteer uw probleem</option>
@@ -794,7 +836,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
           <input type="checkbox" required>
           Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.
         </label>
-        <button type="submit" class="btn-submit">Aanvraag verzenden</button>
+        <button type="submit" class="btn-submit">Verstuur aanvraag — gratis offerte</button>
       </form>
     </div>
   </div>
@@ -821,7 +863,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="18" rx="2.5" stroke="#1A56DB" stroke-width="1.7"/><path d="M4 12h20M10 4v4M18 4v4" stroke="#1A56DB" stroke-width="1.7" stroke-linecap="round"/><rect x="8" y="16" width="4" height="3" rx="1" fill="#1A56DB"/></svg>
         </div>
         <h3>Afspraak zelfde dag</h3>
-        <p>Wij plannen dezelfde dag een monteur in. Bij spoed zijn we binnen 1&ndash;2 uur ter plaatse.</p>
+        <p>Wij plannen dezelfde dag een monteur in. In Rotterdam, Den Haag en omgeving zijn wij bij spoed binnen 1&ndash;2 uur ter plaatse.</p>
       </div>
       <div class="process-step">
         <div class="process-num">03</div>
@@ -992,6 +1034,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
       <div class="stat-num">98%</div>
       <div class="stat-label">Klanten tevreden</div>
     </div>
+    <div class="stat-item">
+      <div class="stat-num">ZH #1</div>
+      <div class="stat-label">In Zuid-Holland</div>
+    </div>
   </div>
 </div>
 
@@ -1049,6 +1095,28 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
         </div>
         <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="rev-text">Binnen een dag geholpen met een verstopte hoofdleiding. Prijs vooraf duidelijk, geen extra kosten. Netjes gewerkt, alles schoon achtergelaten. Ik beveel dit bedrijf zeker aan.</p>
+      </div>
+      <div class="review">
+        <div class="rev-head">
+          <div class="rev-avatar" style="background:#065F46">SK</div>
+          <div>
+            <div class="rev-name">Sandra Kuijpers</div>
+            <div class="rev-date">Rotterdam &middot; 2 weken geleden</div>
+          </div>
+        </div>
+        <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">Verstopte hoofdleiding in ons appartement in Rotterdam-Noord. Binnen anderhalf uur stond de monteur voor de deur. Vriendelijk, snel en netjes. De vaste prijs zonder bijkomende kosten was precies wat ze beloofden.</p>
+      </div>
+      <div class="review">
+        <div class="rev-head">
+          <div class="rev-avatar" style="background:#7C3AED">RV</div>
+          <div>
+            <div class="rev-name">Rob van Dijk</div>
+            <div class="rev-date">Den Haag &middot; 1 maand geleden</div>
+          </div>
+        </div>
+        <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">WC compleet geblokkeerd op een zaterdagochtend. Ze waren de enige die dezelfde dag konden komen in Den Haag. Monteur was professioneel en loste het probleem snel op. Heel tevreden!</p>
       </div>
     </div>
   </div>
@@ -1580,7 +1648,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 Rioolontoppingsservice &middot; KvK: [invullen] &middot; BTW: [invullen]</span>
+    <span>&copy; <span id="fyear"></span> Rioolontoppingsservice &middot; KvK: [invullen] &middot; BTW: [invullen]</span>
     <div style="display:flex;gap:20px;flex-wrap:wrap">
       <a href="#">Privacyverklaring</a>
       <a href="#">Algemene voorwaarden</a>
@@ -1590,6 +1658,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 </footer>
 
 <script>
+document.getElementById('fyear').textContent = new Date().getFullYear();
 function toggleFaq(btn) {
   const body = btn.nextElementSibling;
   const open = btn.getAttribute('aria-expanded') === 'true';

@@ -296,9 +296,17 @@ nav a[aria-current="page"] { background: var(--bg-alt); color: var(--blue); }
   color: #fff;
   padding: 72px max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  position: relative;
+  overflow: hidden;
 }
+.hero-bg-photo {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1542013936693-884638332954?fm=jpg&q=80&w=1600&auto=format&fit=crop');
+  background-size: cover; background-position: center 40%;
+  opacity: 0.13;
+  z-index: 0;
+}
+.hero-inner { position: relative; z-index: 1; }
 .hero-inner {
   max-width: 1160px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 400px; gap: 56px; align-items: center;
@@ -464,6 +472,39 @@ nav a[aria-current="page"] { background: var(--bg-alt); color: var(--blue); }
   .process-grid { grid-template-columns: 1fr; }
 }
 
+/* ── FOTO BANNER ── */
+.foto-banner {
+  background: var(--bg-dark);
+  overflow: hidden;
+  padding: 0;
+}
+.foto-banner-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  max-height: 280px;
+}
+.foto-banner-img {
+  overflow: hidden;
+  position: relative;
+}
+.foto-banner-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.85) saturate(0.9);
+  transition: transform .4s ease, filter .4s ease;
+}
+.foto-banner-img:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.95) saturate(1);
+}
+@media (max-width: 640px) {
+  .foto-banner-inner { grid-template-columns: 1fr; max-height: 220px; }
+  .foto-banner-img:nth-child(2), .foto-banner-img:nth-child(3) { display: none; }
+}
+
 /* ── STATISTIEKEN BANNER ── */
 .stats-banner {
   background: var(--navy-mid);
@@ -552,6 +593,66 @@ nav a[aria-current="page"] { background: var(--bg-alt); color: var(--blue); }
 .svc-name { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: .9rem; color: var(--text); }
 .svc-desc { font-size: .78rem; color: var(--text-muted); line-height: 1.5; }
 .svc-link { font-size: .78rem; color: var(--blue); font-weight: 600; margin-top: auto; }
+
+/* ── VOOR & NA GALERIJ ── */
+.voor-na-section { background: var(--bg); }
+.voor-na-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.vn-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  transition: box-shadow .2s, transform .2s;
+}
+.vn-card:hover {
+  box-shadow: 0 8px 32px rgba(13,27,42,.12);
+  transform: translateY(-3px);
+}
+.vn-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3/2;
+}
+.vn-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.vn-card:hover .vn-img-wrap img { transform: scale(1.05); }
+.vn-label {
+  position: absolute; top: 12px; left: 12px;
+  padding: 4px 10px; border-radius: 4px;
+  font-size: .72rem; font-weight: 700; letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.vn-label--work  { background: rgba(26,86,219,.9);  color: #fff; }
+.vn-label--spoed { background: rgba(220,38,38,.9);  color: #fff; }
+.vn-label--done  { background: rgba(5,150,105,.9);  color: #fff; }
+.vn-info { padding: 18px 20px 22px; }
+.vn-info h3 {
+  font-family: 'DM Sans', sans-serif; font-weight: 700;
+  font-size: .97rem; color: var(--text); margin-bottom: 8px;
+}
+.vn-info p { font-size: .84rem; color: var(--text-sub); line-height: 1.65; }
+.foto-credit {
+  text-align: center; margin-top: 24px;
+  font-size: .72rem; color: var(--text-muted); opacity: .65;
+}
+@media (max-width: 820px) {
+  .voor-na-grid { grid-template-columns: 1fr 1fr; }
+  .voor-na-grid .vn-card:nth-child(3) { display: none; }
+}
+@media (max-width: 520px) {
+  .voor-na-grid { grid-template-columns: 1fr; }
+  .voor-na-grid .vn-card:nth-child(3) { display: block; }
+}
 
 /* ── FAQ ── */
 .faq { margin-top: 40px; }
@@ -745,6 +846,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
 
 <!-- HERO -->
 <section class="hero" id="main">
+  <div class="hero-bg-photo" role="presentation" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-text">
       <div class="spoed-badge"><span></span>Spoeddienst beschikbaar &mdash; ook nu</div>
@@ -884,6 +986,21 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
     </div>
   </div>
 </section>
+
+<!-- FOTO BANNER: MONTEUR AAN HET WERK -->
+<div class="foto-banner" aria-label="Onze monteurs aan het werk">
+  <div class="foto-banner-inner">
+    <div class="foto-banner-img">
+      <img src="https://images.unsplash.com/photo-1542013936693-884638332954?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Gecertificeerde rioolmonteur aan het werk" loading="lazy" width="900" height="600">
+    </div>
+    <div class="foto-banner-img">
+      <img src="https://images.unsplash.com/photo-1620653713380-7a34b773fef8?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Vakkundige monteur riool inspectie" loading="lazy" width="900" height="600">
+    </div>
+    <div class="foto-banner-img">
+      <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=900&h=600&fit=crop" alt="Professionele rioolservice in Zuid-Holland" loading="lazy" width="900" height="600">
+    </div>
+  </div>
+</div>
 
 <!-- TARIEVEN -->
 <section class="section alt" id="tarieven">
@@ -1119,6 +1236,48 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
         <p class="rev-text">WC compleet geblokkeerd op een zaterdagochtend. Ze waren de enige die dezelfde dag konden komen in Den Haag. Monteur was professioneel en loste het probleem snel op. Heel tevreden!</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- VOOR & NA GALERIJ -->
+<section class="section voor-na-section" id="voor-na">
+  <div class="wrap">
+    <p class="section-eyebrow">Ons werk in beeld</p>
+    <h2 class="section-h">Resultaat dat u kunt zien</h2>
+    <p class="section-lead">Van verstopte riolen tot vrij stromend water &mdash; onze monteurs lossen het op. Bekijk hieronder hoe wij te werk gaan.</p>
+    <div class="voor-na-grid">
+      <div class="vn-card">
+        <div class="vn-img-wrap">
+          <img src="https://images.unsplash.com/photo-1542013936693-884638332954?fm=jpg&q=80&w=700&auto=format&fit=crop" alt="Monteur inspectie riool voor aanvang werkzaamheden" loading="lazy" width="700" height="460">
+          <span class="vn-label vn-label--work">Aan het werk</span>
+        </div>
+        <div class="vn-info">
+          <h3>Plaatselijke ontstopping</h3>
+          <p>Onze monteur inspecteert het probleem ter plekke, stelt een diagnose en gebruikt de juiste apparatuur voor een snelle oplossing.</p>
+        </div>
+      </div>
+      <div class="vn-card">
+        <div class="vn-img-wrap">
+          <img src="https://images.unsplash.com/photo-1620653713380-7a34b773fef8?fm=jpg&q=80&w=700&auto=format&fit=crop" alt="Rioolinspectie met hogedruk apparatuur" loading="lazy" width="700" height="460">
+          <span class="vn-label vn-label--spoed">Spoedservice</span>
+        </div>
+        <div class="vn-info">
+          <h3>Hogedruk reiniging</h3>
+          <p>Bij hardnekkige verstoppingen in de hoofdleiding reinigen wij met hogedruk. Effectief en veilig voor uw leidingen.</p>
+        </div>
+      </div>
+      <div class="vn-card">
+        <div class="vn-img-wrap">
+          <img src="https://images.pexels.com/photos/6419128/pexels-photo-6419128.jpeg?auto=compress&cs=tinysrgb&w=700&h=460&fit=crop" alt="Vakkundige rioolservice, gecertificeerde monteur" loading="lazy" width="700" height="460">
+          <span class="vn-label vn-label--done">Opgeleverd</span>
+        </div>
+        <div class="vn-info">
+          <h3>Rioolinspectie</h3>
+          <p>Na de werkzaamheden controleren wij met een camera of alles vrij stroomt. U ontvangt een duidelijk inspectierapport.</p>
+        </div>
+      </div>
+    </div>
+    <p class="foto-credit">Foto's: Unsplash &amp; Pexels (CC0 licentie)</p>
   </div>
 </section>
 

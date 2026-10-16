@@ -1001,8 +1001,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
     <div class="form-card">
       <p class="form-title">Afspraak aanvragen</p>
       <p>Vul het formulier in en ontvang binnen 30 minuten een bevestiging.</p>
-      <form class="form-stack" onsubmit="submitForm(event)">
-        <select id="probleem" required>
+      <form class="form-stack" name="aanvraag" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitForm(event)">
+        <input type="hidden" name="form-name" value="aanvraag">
+        <p style="display:none"><label>Niet invullen: <input name="bot-field"></label></p>
+        <select name="probleem" id="probleem" required>
           <option value="" disabled selected>Selecteer uw probleem</option>
           <optgroup label="Ontstoppingen">
             <option>Afvoer verstopt</option>
@@ -1032,10 +1034,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-
           </optgroup>
           <option value="anders">Ander probleem</option>
         </select>
-        <input type="text" placeholder="Naam" required>
-        <input type="text" placeholder="Adres en plaatsnaam" required>
-        <input type="email" placeholder="E-mailadres" required>
-        <input type="tel" placeholder="Telefoonnummer" required>
+        <input type="text" name="naam" placeholder="Naam" required>
+        <input type="text" name="adres" placeholder="Adres en plaatsnaam" required>
+        <input type="email" name="email" placeholder="E-mailadres" required>
         <label class="agree-row">
           <input type="checkbox" required>
           <span>Ik ga akkoord met de <a href="#">algemene voorwaarden</a> en <a href="#">privacyverklaring</a>.</span>
@@ -1916,10 +1917,37 @@ function toggleFaq(btn) {
 }
 function submitForm(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = 'Aanvraag verzonden';
+  const form = e.target;
+  const btn = form.querySelector('.btn-submit');
+  const origText = btn.textContent;
+  btn.textContent = 'Versturen…';
   btn.disabled = true;
-  setTimeout(() => { btn.textContent = 'Aanvraag verzenden'; btn.disabled = false; e.target.reset(); }, 4000);
+
+  const data = new FormData(form);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(data).toString()
+  })
+  .then(function(res) {
+    if (res.ok) {
+      btn.textContent = '✓ Aanvraag ontvangen';
+      btn.style.background = '#16a34a';
+      form.reset();
+      setTimeout(function() {
+        btn.textContent = origText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 5000);
+    } else {
+      throw new Error('network');
+    }
+  })
+  .catch(function() {
+    btn.textContent = 'Probeer opnieuw';
+    btn.disabled = false;
+  });
 }
 
 /* ── FLOATING CTA (show after scroll) ── */
